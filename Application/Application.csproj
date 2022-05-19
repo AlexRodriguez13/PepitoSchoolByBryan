@@ -46,6 +46,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EstudianteService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{113C69ED-9CC7-457F-849D-D8744DD186FC}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
