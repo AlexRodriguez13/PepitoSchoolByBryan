@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    internal interface IEstudianteRepository : IRepository<Estudiante>
+    public interface IEstudianteRepository : IRepository<Estudiante>
     {
         Estudiante FindByCarnet(string carnet);
         List<Estudiante> FindByNames(string names);

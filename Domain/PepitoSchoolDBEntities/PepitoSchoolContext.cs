@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Domain.PepitoSchoolDBEntities
 {
-    public class PepitoSchoolContext : DbContext, IPepitoSchoolContext
+    public class PepitoSchoolContext : DbContext, IPepitoContext
     {
 
 
@@ -74,6 +77,7 @@ namespace Domain.PepitoSchoolDBEntities
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
+}
 
 
 
