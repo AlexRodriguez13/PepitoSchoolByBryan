@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Applications.Interfaces
 {
-    public interface IEstudianteService
+    public interface IEstudianteService : IService<Estudiante>
     {
+        Estudiante FindByCarnet(string carnet);
+        List<Estudiante> FindByNames(string names);
+        List<Estudiante> FindByLastnames(string lastnames);
     }
 }
