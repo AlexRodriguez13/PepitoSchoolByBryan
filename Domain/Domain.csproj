@@ -46,6 +46,9 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Entities\Estudiante.cs" />
+    <Compile Include="Interfaces\IEstudianteRepository.cs" />
+    <Compile Include="Interfaces\IPepitoContext.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
