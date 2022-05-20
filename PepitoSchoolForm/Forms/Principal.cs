@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PepitoSchoolForm
+namespace PepitoSchoolForm.Forms
 {
-    public partial class Form1 : Form
+    public partial class Principal : Form
     {
-        public Form1()
+        public Principal()
         {
             InitializeComponent();
         }
-
     }
 }
