@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public class IRepository
+    public interface IRepository<T>
     {
+        void Create(T t);
+        int Update(T t);
+        bool Delete(T t);
+        List<T> GetAll();
     }
 }

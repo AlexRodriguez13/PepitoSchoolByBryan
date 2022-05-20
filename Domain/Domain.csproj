@@ -49,6 +49,7 @@
     <Compile Include="Interfaces\IEstudianteRepository.cs" />
     <Compile Include="Interfaces\IPepitoContext.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="PepitoSchoolDBEntities\PepitoSchoolContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
