@@ -172,6 +172,7 @@
             this.btnaceptar.TabIndex = 13;
             this.btnaceptar.Text = "Aceptar";
             this.btnaceptar.UseVisualStyleBackColor = true;
+            this.btnaceptar.Click += new System.EventHandler(this.btnaceptar_Click);
             // 
             // btnmodificar
             // 
@@ -181,6 +182,7 @@
             this.btnmodificar.TabIndex = 14;
             this.btnmodificar.Text = "Modificar";
             this.btnmodificar.UseVisualStyleBackColor = true;
+            this.btnmodificar.Click += new System.EventHandler(this.btnmodificar_Click);
             // 
             // btncancelar
             // 
