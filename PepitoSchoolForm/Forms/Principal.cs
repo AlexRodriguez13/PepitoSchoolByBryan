@@ -1,16 +1,10 @@
 ﻿using Domain.Entities;
 using PepitoschoolApp.Interfaces;
+using PepitoSchoolForm.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PepitoSchoolForm.Forms
+namespace PepitoSchool.Forms.Forms
 {
     public partial class Principal : Form
     {
@@ -27,10 +21,6 @@ namespace PepitoSchoolForm.Forms
             dataGridView1.DataSource = estudiantesServices.GetAll();
             dataGridView1.ClearSelection();
         }
-        public Principal()
-        {
-            InitializeComponent();
-        }
 
         private void agregarEstudianteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -39,28 +29,6 @@ namespace PepitoSchoolForm.Forms
             frmEstudiante.ShowDialog();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = estudiantesServices.GetAll();
-        }
-
-        
-
-        private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Seleccione toda la fila del estudiante con la flechita de la izquierda (parece boton de play) y de click derecho para ver más opciones");
-        }
-
-       
-        private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        
-
-        private void porCarnetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            seleccion = 0;
-            btnbuscar.Visible = true;
-            txtbuscar.Visible = true;
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,17 +43,9 @@ namespace PepitoSchoolForm.Forms
             }
         }
 
-        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int index = dataGridView1.CurrentCell.RowIndex;
-            if (index >= 0)
-            {
-                FrmEstudiante frmEstudiante = new FrmEstudiante(index);
-                frmEstudiante.estudiantesServices = estudiantesServices;
-                frmEstudiante.ShowDialog();
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = estudiantesServices.GetAll();
-            }
+            MessageBox.Show("Seleccione toda la fila del estudiante con la flechita de la izquierda (parece boton de play) y de click derecho para ver más opciones");
         }
 
         private void promedioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -100,25 +60,40 @@ namespace PepitoSchoolForm.Forms
                 MessageBox.Show($"El promedio de notas del alumno {a.Nombres} {a.Apellidos} es de: {promedio} ");
             }
         }
-        private void cmsDataGridView_Click(object sender, EventArgs e)
+
+        private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
         {
-            try
-            {
-                if (dataGridView1.CurrentCell.RowIndex == -1)
-                {
-                    cmsDataGridView.Dispose();
-                }
-            }
-            catch (Exception)
-            {
-                cmsDataGridView.Dispose();
-            }
+            
         }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = dataGridView1.CurrentCell.RowIndex;
+            if (index >= 0)
+            {
+                FrmEstudiante frmEstudiante = new FrmEstudiante(index);
+                frmEstudiante.estudiantesServices = estudiantesServices;
+                frmEstudiante.ShowDialog();
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = estudiantesServices.GetAll();
+            }
+               
+        }
+
+        
+
+        private void porCarnetToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            seleccion = 0;
+            btnbuscar.Visible = true;
+            txtbuscar.Visible = true;
+        }
+
         private void btnbuscar_Click(object sender, EventArgs e)
         {
             if (seleccion == 0)
             {
-                dataGridView1.DataSource = estudiantesServices.FindByCarnet(txtbuscar.Text);
+               dataGridView1.DataSource = estudiantesServices.FindByCarnet(txtbuscar.Text);
             }
             else if (seleccion == 1)
             {
@@ -132,6 +107,7 @@ namespace PepitoSchoolForm.Forms
             btnbuscar.Visible = false;
             txtbuscar.Visible = false;
         }
+
         private void porNombresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             seleccion = 1;
@@ -145,6 +121,7 @@ namespace PepitoSchoolForm.Forms
             btnbuscar.Visible = true;
             txtbuscar.Visible = true;
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = null;
@@ -152,10 +129,25 @@ namespace PepitoSchoolForm.Forms
             dataGridView1.ClearSelection();
             button1.Visible = false;
         }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+           
         }
 
+        private void cmsDataGridView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(dataGridView1.CurrentCell.RowIndex == -1)
+                {
+                    cmsDataGridView.Dispose();
+                }
+            }
+            catch (Exception)
+            {
+                cmsDataGridView.Dispose();
+            }
+        }
     }
 }
