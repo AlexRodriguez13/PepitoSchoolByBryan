@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,11 +38,14 @@
             this.porNombreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.porCarnetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.porApellidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            this.cmsDataGridView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.promedioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.promedioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.cmsDataGridView.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -68,10 +72,7 @@
             this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.agregarEstudianteToolStripMenuItem,
             this.ayudaToolStripMenuItem,
-            this.buscarToolStripMenuItem,
-            this.eliminarToolStripMenuItem,
-            this.promedioToolStripMenuItem,
-            this.modificarToolStripMenuItem});
+            this.buscarToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.opcionesToolStripMenuItem.Text = "Opciones";
@@ -111,6 +112,7 @@
             this.porCarnetToolStripMenuItem.Name = "porCarnetToolStripMenuItem";
             this.porCarnetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.porCarnetToolStripMenuItem.Text = "Por Carnet";
+            this.porCarnetToolStripMenuItem.Click += new System.EventHandler(this.porCarnetToolStripMenuItem_Click);
             // 
             // porApellidoToolStripMenuItem
             // 
@@ -118,12 +120,35 @@
             this.porApellidoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.porApellidoToolStripMenuItem.Text = "Por Apellido";
             // 
+            // sqlCommand1
+            // 
+            this.sqlCommand1.CommandTimeout = 30;
+            this.sqlCommand1.Connection = null;
+            this.sqlCommand1.Notification = null;
+            this.sqlCommand1.Transaction = null;
+            // 
+            // cmsDataGridView
+            // 
+            this.cmsDataGridView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eliminarToolStripMenuItem,
+            this.modificarToolStripMenuItem,
+            this.promedioToolStripMenuItem});
+            this.cmsDataGridView.Name = "cmsDataGridView";
+            this.cmsDataGridView.Size = new System.Drawing.Size(181, 92);
+            // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
             this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Text = "Eliminar ";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
+            // modificarToolStripMenuItem
+            // 
+            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarToolStripMenuItem.Text = "Modificar ";
+            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // promedioToolStripMenuItem
             // 
@@ -131,13 +156,6 @@
             this.promedioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.promedioToolStripMenuItem.Text = "Promedio";
             this.promedioToolStripMenuItem.Click += new System.EventHandler(this.promedioToolStripMenuItem_Click);
-            // 
-            // modificarToolStripMenuItem
-            // 
-            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.modificarToolStripMenuItem.Text = "Modificar";
-            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -152,6 +170,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.cmsDataGridView.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,8 +187,10 @@
         private System.Windows.Forms.ToolStripMenuItem porNombreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem porCarnetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem porApellidoToolStripMenuItem;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
+        private System.Windows.Forms.ContextMenuStrip cmsDataGridView;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem promedioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem promedioToolStripMenuItem;
     }
 }
