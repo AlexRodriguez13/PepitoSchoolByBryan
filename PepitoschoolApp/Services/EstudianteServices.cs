@@ -18,37 +18,46 @@ namespace PepitoschoolApp.Services
         }
         public void Create(Estudiante t)
         {
-            throw new NotImplementedException();
+            if (t == null)
+            {
+                throw new ArgumentNullException("El estudiante no puede ser null.");
+            }
+
+            estudianteRepository.Create(t);
         }
 
         public bool Delete(Estudiante t)
         {
-            throw new NotImplementedException();
+            if (t == null)
+            {
+                throw new ArgumentNullException("El estudiante no puede ser null.");
+            }
+            return estudianteRepository.Delete(t);
         }
 
         public Estudiante FindByCarnet(string carnet)
         {
-            throw new NotImplementedException();
+            return estudianteRepository.FindByCarnet(carnet);
         }
 
         public List<Estudiante> FindByLastnames(string lastnames)
         {
-            throw new NotImplementedException();
+            return estudianteRepository.FindByLastnames(lastnames);
         }
 
         public List<Estudiante> FindByNames(string names)
         {
-            throw new NotImplementedException();
+            return estudianteRepository.FindByNames(names);
         }
 
         public List<Estudiante> GetAll()
         {
-            throw new NotImplementedException();
+            return estudianteRepository.GetAll();
         }
 
         public int Update(Estudiante t)
         {
-            throw new NotImplementedException();
+            return estudianteRepository.Update(t);
         }
     }
 }
